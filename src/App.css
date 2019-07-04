@@ -1,7 +1,7 @@
 
-.App-logo {
-  animation: logo-spin infinite 20s linear;
-  height: 40vmin;
+.spinner {
+  animation: spinning infinite 20s linear;
+  height: 80vmin;
   pointer-events: none;
 }
 
@@ -48,6 +48,20 @@ td {
   padding: 1em;
 }
 
+.circle {
+  background-color: #ffce00;
+}
+.hammersmith-city {
+  background-color: #d799af;
+}
+.metropolitan {
+  background-color: #751056;
+  color: #fff;
+}
+.nis {
+  background-color:orange;
+}
+
 .app-footer {
     background-color: #D3D3D3;
     position: absolute;
@@ -57,7 +71,7 @@ td {
     overflow: hidden;
 }
 
-@keyframes logo-spin {
+@keyframes spinning {
   from {
     transform: rotate(0deg);
   }
