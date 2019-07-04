@@ -28,6 +28,26 @@
   text-shadow: 0px 9px 5px #000;
 }
 
+table {
+  width: 80%;
+  border-collapse: collapse;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+.train-table__title {
+  font-size: 2em;
+  color: #242c9e;
+}
+
+th {
+  font-weight: bold;
+  line-height: 2rem;
+}
+td {
+  font-size: 1rem;
+  padding: 1em;
+}
+
 .app-footer {
     background-color: #D3D3D3;
     position: absolute;
