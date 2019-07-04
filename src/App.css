@@ -5,6 +5,18 @@
   pointer-events: none;
 }
 
+/* structural css */
+.dispay-flex{
+  display: flex;
+}
+.flex-container__column {
+  flex-direction: column;
+}
+.flex-container__row {
+  flex-direction: row;
+  margin-bottom: 3rem;
+}
+
 .app-header {
   background-color: #c41718;
   min-height: 20vh;
