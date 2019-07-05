@@ -4,6 +4,7 @@ import logo from './../underground.svg';
 
 const useFetch = (url) => {
   const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -12,18 +13,19 @@ const useFetch = (url) => {
         const res = await fetch(url);
         const json = await res.json();
         setData(json);
+        setLoading(false);
       } catch (error) {
         setError(error);
       }
     };
     fetchData();
   }, [url]);
-  return { data, error };
+  return { data, loading, error };
 };
 
 const TrainTimes = ()  => {
   const res = useFetch("https://api.tfl.gov.uk/StopPoint/940GZZLUGPS/Arrivals?mode=tube");
-  if (!res.data) {
+  if (!res.data || res.loading ) {
     return (
       <div>
         <img src={logo} className="spinner" alt="logo" />
