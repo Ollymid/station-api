@@ -2,15 +2,15 @@ import React, { useState, useEffect } from "react";
 import TrainTable from './TrainTable';
 import logo from './../underground.svg';
 
-const useFetch = (url) => {
-  const [data, setData] = useState(null);
+const useFetch = (stationCode) => {
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = async (stationCode) => {
       try {
-        const res = await fetch(url);
+        const res = await fetch(`https://api.tfl.gov.uk/StopPoint/${stationCode}/Arrivals?mode=tube`);
         const json = await res.json();
         setData(json);
         setLoading(false);
@@ -18,14 +18,14 @@ const useFetch = (url) => {
         setError(error);
       }
     };
-    fetchData();
-  }, [url]);
+    fetchData(stationCode);
+  }, [stationCode]);
   return { data, loading, error };
 };
 
 const TrainTimes = ()  => {
-  const res = useFetch("https://api.tfl.gov.uk/StopPoint/940GZZLUGPS/Arrivals?mode=tube");
-  if (!res.data || res.loading ) {
+  const res = useFetch("940GZZLUOXC");
+  if (res.data.length === 0 || res.loading ) {
     return (
       <div>
         <img src={logo} className="spinner" alt="logo" />
@@ -58,6 +58,7 @@ const TrainTimes = ()  => {
         <TrainTable title="Eastbound Platform" trains={eastbound} />
         <TrainTable title="Westbound Platform" trains={westbound} />
       </section>
+
   )
 };
 
