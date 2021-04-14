@@ -1,0 +1,11 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    versioning-strategy: increase
+    open-pull-requests-limit: 15
+    schedule:
+      interval: "daily"
+      time: "02:00"
+    labels:
+      - "dependencies"
